@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arianne Kargbo | Senior Public Information Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0f0d; --bg2: #0f1610; --bg3: #141c15;
+    --emerald: #00e676; --emerald-dim: #00b85a;
+    --emerald-glow: rgba(0,230,118,0.12); --emerald-border: rgba(0,230,118,0.25);
+    --white: #f0f4f1; --grey: #8a9e8d; --grey-dim: #4a5e4d; --text: #c8d8ca;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 18px; line-height: 1.7; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.4; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: rgba(10,15,13,0.88); backdrop-filter: blur(20px); border-bottom: 1px solid var(--emerald-border); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.15em; color: var(--emerald); text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: var(--emerald); transform: scaleX(0); transition: transform 0.25s ease; }
+  .nav-links a:hover { color: var(--emerald); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links a.active { color: var(--emerald); }
+
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 8rem 4rem 4rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -20%; right: -10%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(0,230,118,0.07) 0%, transparent 70%); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--emerald-border), transparent); }
+  .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--emerald); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; opacity: 0; animation: fadeUp 0.7s ease 0.1s forwards; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--emerald); }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 8vw, 7.5rem); line-height: 0.92; letter-spacing: 0.02em; color: var(--white); margin-bottom: 0.2rem; opacity: 0; animation: fadeUp 0.7s ease 0.25s forwards; }
+  .name-accent { color: var(--emerald); display: block; }
+  .hero-title { font-style: italic; color: var(--grey); margin: 1.5rem 0 2rem; border-left: 2px solid var(--emerald); padding-left: 1rem; font-size: 1rem; opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards; }
+  .hero-bio { font-size: 1.05rem; font-weight: 300; color: var(--text); max-width: 520px; margin-bottom: 3rem; line-height: 1.8; opacity: 0; animation: fadeUp 0.7s ease 0.55s forwards; }
+  .hero-cta { display: flex; gap: 1.2rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s ease 0.7s forwards; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2rem; background: var(--emerald); color: var(--bg); font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+  .btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,230,118,0.25); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2rem; border: 1px solid var(--emerald-border); color: var(--emerald); font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+  .btn-secondary:hover { background: var(--emerald-glow); border-color: var(--emerald); transform: translateY(-2px); }
+
+  .hero-visual { display: flex; justify-content: center; align-items: center; z-index: 1; opacity: 0; animation: fadeUp 0.9s ease 0.3s forwards; }
+  .headshot-frame { position: relative; width: 360px; height: 460px; }
+  .headshot-frame::before { content: ''; position: absolute; top: -12px; right: -12px; width: 100%; height: 100%; border: 1px solid var(--emerald-border); z-index: 0; }
+  .headshot-frame::after { content: ''; position: absolute; bottom: -12px; left: -12px; width: 60%; height: 60%; border: 1px solid var(--emerald-dim); opacity: 0.3; z-index: 0; }
+  .headshot-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; position: relative; z-index: 1; }
+  .headshot-label { position: absolute; bottom: 1.5rem; left: -1.5rem; background: var(--emerald); color: var(--bg); font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1rem; z-index: 2; }
+
+  .stats-bar { display: flex; border-top: 1px solid var(--emerald-border); border-bottom: 1px solid var(--emerald-border); background: var(--bg2); }
+  .stat { flex: 1; text-align: center; padding: 2.5rem 2rem; border-right: 1px solid var(--emerald-border); transition: background 0.2s; }
+  .stat:last-child { border-right: none; }
+  .stat:hover { background: var(--emerald-glow); }
+  .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 0.05em; color: var(--emerald); line-height: 1; display: block; }
+  .stat-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey); margin-top: 0.4rem; display: block; }
+
+  .skills-strip { padding: 5rem 4rem; background: var(--bg); }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--emerald); margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--emerald-border); }
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .skill-tag { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; color: var(--grey); padding: 0.6rem 1.2rem; border: 1px solid var(--grey-dim); transition: all 0.2s; cursor: default; }
+  .skill-tag:hover { color: var(--emerald); border-color: var(--emerald); background: var(--emerald-glow); }
+
+  /* ACTION PHOTOS */
+  .photos-strip { padding: 5rem 4rem; background: var(--bg2); border-top: 1px solid var(--emerald-border); }
+  .photos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--emerald-border); }
+  .photo-item { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--bg3); }
+  .photo-item img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.4s ease; display: block; }
+  .photo-item:hover img { transform: scale(1.06); }
+  .photo-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 1.5rem 1rem 0.8rem; font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--emerald); opacity: 0; transition: opacity 0.3s; }
+  .photo-item:hover .photo-caption { opacity: 1; }
+
+  /* PROJECTS */
+  .preview-section { padding: 5rem 4rem; background: var(--bg); }
+  .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: 0.05em; color: var(--white); line-height: 1; }
+  .see-all { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--emerald); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: gap 0.2s; }
+  .see-all:hover { gap: 0.8rem; }
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--emerald-border); }
+  .card { background: var(--bg); padding: 2.5rem; transition: background 0.2s; position: relative; overflow: hidden; text-decoration: none; display: block; }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--emerald); transition: height 0.3s ease; }
+  .card:hover { background: var(--bg3); }
+  .card:hover::before { height: 100%; }
+  .card-tag { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--emerald-dim); margin-bottom: 0.8rem; }
+  .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.05em; color: var(--white); margin-bottom: 0.6rem; line-height: 1.1; }
+  .card-stat { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.05em; color: var(--emerald); margin-bottom: 0.8rem; }
+  .card-desc { font-size: 0.95rem; color: var(--grey); line-height: 1.7; }
+
+  /* INSTAGRAM SECTION */
+  .social-section { padding: 5rem 4rem; background: var(--bg2); border-top: 1px solid var(--emerald-border); }
+  .social-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .social-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--white); letter-spacing: 0.05em; line-height: 1; margin-bottom: 1.5rem; }
+  .social-text p { font-size: 1rem; font-weight: 300; color: var(--grey); line-height: 1.8; margin-bottom: 2rem; }
+  .instagram-link { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1rem 2rem; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); color: #fff; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+  .instagram-link:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(253,29,29,0.3); }
+  .instagram-link svg { width: 18px; height: 18px; }
+  .social-preview { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .ig-card { background: var(--bg3); border: 1px solid var(--emerald-border); padding: 1.5rem; transition: border-color 0.2s; }
+  .ig-card:hover { border-color: var(--emerald); }
+  .ig-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--emerald); line-height: 1; letter-spacing: 0.05em; }
+  .ig-card-label { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey-dim); margin-top: 0.3rem; }
+
+  .contact-strip { padding: 4rem; background: var(--bg); border-top: 1px solid var(--emerald-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+  .contact-strip-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--white); letter-spacing: 0.05em; }
+  .contact-strip-text p { color: var(--grey); font-size: 1rem; font-style: italic; }
+  .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .contact-link { display: flex; align-items: center; gap: 0.5rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.06em; color: var(--grey); text-decoration: none; padding: 0.7rem 1.2rem; border: 1px solid var(--grey-dim); transition: all 0.2s; }
+  .contact-link:hover { color: var(--emerald); border-color: var(--emerald); background: var(--emerald-glow); }
+
+  footer { padding: 2rem 3rem; background: var(--bg2); border-top: 1px solid var(--emerald-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-copy { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--grey-dim); text-transform: uppercase; }
+  .footer-nav { display: flex; gap: 1.5rem; list-style: none; }
+  .footer-nav a { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dim); text-decoration: none; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--emerald); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 1000px) {
+    nav { padding: 1rem 2rem; }
+    .nav-links { gap: 1.2rem; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 2rem 4rem; }
+    .hero-visual { display: none; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .photos-grid { grid-template-columns: repeat(2, 1fr); }
+    .social-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .stats-bar { flex-wrap: wrap; }
+    .stat { min-width: 50%; }
+    .preview-section, .skills-strip, .contact-strip, .photos-strip, .social-section { padding: 3rem 2rem; }
+    footer { padding: 1.5rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">AK</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="speaking.html">Speaking</a></li>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Senior Public Information Specialist</div>
+    <h1>Arianne<span class="name-accent">Kargbo</span></h1>
+    <p class="hero-title">County of Riverside Executive Office &nbsp;·&nbsp; Government Communications &nbsp;·&nbsp; Riverside, CA</p>
+    <p class="hero-bio">Strategic communications professional with five years of government experience, telling positive-impact stories through fresh perspectives for the communities she was raised in and serves.</p>
+    <div class="hero-cta">
+      <a href="projects.html" class="btn-primary">View My Work →</a>
+      <a href="contact.html" class="btn-secondary">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="headshot-frame">
+      <img src="headshot.jpg" alt="Arianne Kargbo" class="headshot-img">
+      <div class="headshot-label">Arianne Kargbo</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat"><span class="stat-number">5+</span><span class="stat-label">Years in Gov. Comms</span></div>
+  <div class="stat"><span class="stat-number">23,840</span><span class="stat-label">Survey Responses Driven</span></div>
+  <div class="stat"><span class="stat-number">35K+</span><span class="stat-label">Employees Reached</span></div>
+  <div class="stat"><span class="stat-number">6</span><span class="stat-label">Certifications</span></div>
+</div>
+
+<section class="skills-strip">
+  <div class="section-label">Core Competencies</div>
+  <div class="skills-grid">
+    <span class="skill-tag">Strategic Communications</span>
+    <span class="skill-tag">Internal Communications</span>
+    <span class="skill-tag">Campaign Development</span>
+    <span class="skill-tag">Crisis Communications</span>
+    <span class="skill-tag">Public Speaking</span>
+    <span class="skill-tag">Content Development</span>
+    <span class="skill-tag">AI Integration</span>
+    <span class="skill-tag">Media Relations</span>
+    <span class="skill-tag">Social Media Strategy</span>
+    <span class="skill-tag">Canva · Adobe Creative Suite</span>
+    <span class="skill-tag">Videography & Editing</span>
+    <span class="skill-tag">Analytics & Reporting</span>
+    <span class="skill-tag">Community Outreach</span>
+    <span class="skill-tag">Public Information Officer</span>
+    <span class="skill-tag">EOC Operations</span>
+    <span class="skill-tag">Bilingual Content (EN/ES)</span>
+  </div>
+</section>
+
+<section class="photos-strip">
+  <div class="section-label">In Action</div>
+  <div class="photos-grid">
+    <div class="photo-item">
+      <img src="photo_prsa.jpg" alt="Speaking at PRSA Inland Empire">
+      <div class="photo-caption">PRSA Inland Empire — Keynote</div>
+    </div>
+    <div class="photo-item">
+      <img src="photo_presenting.jpg" alt="Presenting RivCoONE">
+      <div class="photo-caption">RivCoONE — Team Presentation</div>
+    </div>
+    <div class="photo-item">
+      <img src="photo_boardbrief.jpg" alt="RivCo TV Board Brief">
+      <div class="photo-caption">RivCo TV — Board Brief Host</div>
+    </div>
+    <div class="photo-item">
+      <img src="photo_interview2.jpg" alt="Field Interview">
+      <div class="photo-caption">RivCo TV — Field Interview</div>
+    </div>
+  </div>
+</section>
+
+<section class="preview-section">
+  <div class="section-header">
+    <h2 class="section-title">Featured Work</h2>
+    <a href="projects.html" class="see-all">All Projects →</a>
+  </div>
+  <div class="cards-grid">
+    <a href="projects.html" class="card">
+      <div class="card-tag">Internal Communications</div>
+      <div class="card-title">The Equity Lens Newsletter</div>
+      <div class="card-stat">13,000+ opens per edition · 25K employees reached</div>
+      <p class="card-desc">Emmy-tied quarterly bilingual publication connecting 25,000+ Riverside County employees to DEIA efforts and employee stories.</p>
+    </a>
+    <a href="projects.html" class="card">
+      <div class="card-tag">Brand / Internal Rebrand</div>
+      <div class="card-title">RivCoONE Brand Launch</div>
+      <div class="card-stat">100% leadership adoption · 23,500+ employees</div>
+      <p class="card-desc">Led internal rollout of a new countywide service brand with a full messaging framework, graphic standards, and comms plan.</p>
+    </a>
+    <a href="projects.html" class="card">
+      <div class="card-tag">Civic Engagement Campaign</div>
+      <div class="card-title">County Budget Campaign</div>
+      <div class="card-stat">23,840 responses — goal was 10,000</div>
+      <p class="card-desc">Multi-channel civic engagement campaign achieving record-breaking community participation in the county's annual budget process.</p>
+    </a>
+  </div>
+</section>
+
+<section class="social-section">
+  <div class="social-inner">
+    <div class="social-text">
+      <h2>See the Work<br>Live on Social</h2>
+      <p>As Sr. Public Information Specialist, Arianne helps develop and manage content for <strong style="color:var(--white)">@RivCoNow</strong> — the County of Riverside's official social media presence. From campaign launches and community events to crisis communications, the account is a living example of her strategic storytelling in action.</p>
+      <p style="margin-bottom:2rem; font-style:italic; font-size:0.95rem;">We invite you to explore the page to see the caliber and consistency of government communications at scale.</p>
+      <a href="https://www.instagram.com/rivconow" target="_blank" class="instagram-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        View @RivCoNow on Instagram
+      </a>
+    </div>
+    <div class="social-preview">
+      <div class="ig-card">
+        <div class="ig-card-num">2.6K+</div>
+        <div class="ig-card-label">Monthly Interactions</div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-card-num">~1K</div>
+        <div class="ig-card-label">Instagram Followers Grown from Zero</div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-card-num">4</div>
+        <div class="ig-card-label">Platforms Managed (FB, IG, Vimeo, X)</div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-card-num">EN/ES</div>
+        <div class="ig-card-label">Bilingual Content Strategy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-strip">
+  <div class="contact-strip-text">
+    <h2>Let's Connect</h2>
+    <p>Open to new opportunities and collaborations</p>
+  </div>
+  <div class="contact-links">
+    <a href="mailto:murphyarianne22@gmail.com" class="contact-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      murphyarianne22@gmail.com
+    </a>
+    <a href="tel:9515910188" class="contact-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      951-591-0188
+    </a>
+    <a href="https://www.linkedin.com/in/arianne-kargbo-b0bb0129b/" target="_blank" class="contact-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-copy">© 2025 Arianne Kargbo · Communications Professional</span>
+  <ul class="footer-nav">
+    <li><a href="about.html">About</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="speaking.html">Speaking</a></li>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+</body>
+</html>

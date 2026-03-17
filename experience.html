@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience | Arianne Kargbo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0a0f0d;--bg2:#0f1610;--bg3:#141c15;--emerald:#00e676;--emerald-dim:#00b85a;--emerald-glow:rgba(0,230,118,0.12);--emerald-border:rgba(0,230,118,0.25);--white:#f0f4f1;--grey:#8a9e8d;--grey-dim:#4a5e4d;--text:#c8d8ca}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;font-size:18px;line-height:1.7;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;background:rgba(10,15,13,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--emerald-border)}
+  .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.15em;color:var(--emerald);text-decoration:none}
+  .nav-links{display:flex;gap:2rem;list-style:none}
+  .nav-links a{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color 0.2s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--emerald);transform:scaleX(0);transition:transform 0.25s ease}
+  .nav-links a:hover{color:var(--emerald)} .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)} .nav-links a.active{color:var(--emerald)}
+  .page-header{padding:10rem 4rem 5rem;background:var(--bg2);position:relative;border-bottom:1px solid var(--emerald-border);overflow:hidden}
+  .page-header::before{content:'EXP';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:18rem;color:rgba(0,230,118,0.03);pointer-events:none;letter-spacing:-0.05em;line-height:1}
+  .page-eyebrow{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--emerald);margin-bottom:1rem}
+  .page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,7vw,6rem);letter-spacing:0.03em;color:var(--white);line-height:0.95}
+  .timeline-section{padding:5rem 4rem;max-width:1100px;margin:0 auto}
+  .timeline{position:relative}
+  .timeline::before{content:'';position:absolute;left:190px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--emerald-border),var(--grey-dim),transparent)}
+  .timeline-item{display:grid;grid-template-columns:190px 1fr;gap:3rem;margin-bottom:4.5rem;position:relative;opacity:0;animation:fadeUp 0.6s ease forwards}
+  .timeline-item:nth-child(1){animation-delay:0.1s} .timeline-item:nth-child(2){animation-delay:0.2s} .timeline-item:nth-child(3){animation-delay:0.3s} .timeline-item:nth-child(4){animation-delay:0.4s} .timeline-item:nth-child(5){animation-delay:0.5s}
+  .timeline-item::before{content:'';position:absolute;left:190px;top:0.8rem;width:10px;height:10px;background:var(--emerald);border-radius:50%;transform:translateX(-4.5px);box-shadow:0 0 12px rgba(0,230,118,0.5)}
+  .timeline-meta{padding-top:0.2rem;text-align:right}
+  .timeline-date{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;color:var(--emerald-dim);line-height:1.5;display:block}
+  .timeline-org{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;color:var(--grey-dim);margin-top:0.4rem;display:block;text-transform:uppercase}
+  .timeline-content{padding-left:3rem}
+  .job-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.05em;color:var(--white);line-height:1;margin-bottom:0.3rem}
+  .job-org{font-style:italic;color:var(--emerald);font-size:1rem;margin-bottom:1.5rem;display:block}
+  .job-desc{font-size:1rem;color:var(--text);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
+  .job-highlights{display:flex;flex-direction:column;gap:0.6rem}
+  .highlight{display:flex;gap:0.8rem;align-items:flex-start;font-size:0.95rem;color:var(--grey);line-height:1.6}
+  .highlight::before{content:'→';color:var(--emerald);font-family:'DM Mono',monospace;font-size:0.75rem;flex-shrink:0;margin-top:0.2rem}
+  .job-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
+  .job-tag{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-dim);padding:0.3rem 0.8rem;border:1px solid var(--grey-dim)}
+  .divider{border:none;border-top:1px solid var(--emerald-border);margin:0.5rem 0 0 3rem}
+  footer{padding:2rem 3rem;background:var(--bg2);border-top:1px solid var(--emerald-border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .footer-copy{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;color:var(--grey-dim);text-transform:uppercase}
+  .footer-nav{display:flex;gap:1.5rem;list-style:none}
+  .footer-nav a{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-dim);text-decoration:none;transition:color 0.2s}
+  .footer-nav a:hover{color:var(--emerald)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  @media(max-width:900px){nav{padding:1rem 2rem}.page-header{padding:8rem 2rem 3rem}.timeline-section{padding:3rem 2rem}.timeline::before{left:0}.timeline-item{grid-template-columns:1fr;gap:0.5rem;padding-left:1.5rem}.timeline-item::before{left:0}.timeline-meta{text-align:left}.timeline-content{padding-left:0}footer{padding:1.5rem 2rem}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">AK</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="experience.html" class="active">Experience</a></li><li><a href="projects.html">Projects</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="certifications.html">Certifications</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="page-header">
+  <div class="page-eyebrow">Professional History</div>
+  <h1 class="page-title">Work<br>Experience</h1>
+</div>
+<section class="timeline-section">
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-meta">
+        <span class="timeline-date">Current<br>Position</span>
+        <span class="timeline-org">RivCo Exec. Office</span>
+      </div>
+      <div class="timeline-content">
+        <h2 class="job-title">Senior Public Information Specialist</h2>
+        <span class="job-org">County of Riverside — Executive Office</span>
+        <p class="job-desc">Leads internal communication priorities for one of California's most populous counties (2.4M+ residents), developing and disseminating critical messaging for the RivCo community and 25,000+ county employees.</p>
+        <div class="job-highlights">
+          <div class="highlight">Leads the development and execution of The Equity Lens — a quarterly bilingual internal newsletter reaching 25,000 county employees and 10,000 external subscribers, achieving 13,000+ opens per edition</div>
+          <div class="highlight">Spearheaded internal brand launch of RivCoONE, achieving 100% leadership adoption and producing 15+ branded collateral pieces for 23,500+ employees</div>
+          <div class="highlight">Co-produced the County Budget Civic Engagement Campaign, generating 23,840 survey responses against a goal of 10,000</div>
+          <div class="highlight">Hosts and produces RivCo TV's Board Brief segment, scripting, recording, and coordinating field interviews</div>
+          <div class="highlight">Develops bilingual (EN/ES) communications reaching diverse county communities including Hispanic/Latino populations</div>
+          <div class="highlight">Applies AI integration tools to streamline content development and campaign efficiency</div>
+        </div>
+        <div class="job-tags">
+          <span class="job-tag">Internal Comms</span><span class="job-tag">Brand Strategy</span><span class="job-tag">AI Integration</span><span class="job-tag">Video Production</span><span class="job-tag">Bilingual</span>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+
+    <div class="timeline-item">
+      <div class="timeline-meta">
+        <span class="timeline-date">May 2023<br>to Prior</span>
+        <span class="timeline-org">RUHS–Public Health</span>
+      </div>
+      <div class="timeline-content">
+        <h2 class="job-title">Public Information Specialist</h2>
+        <span class="job-org">Riverside University Health System — Public Health Department</span>
+        <p class="job-desc">Media Relations and Administration division. Grew the department's Instagram presence from zero to nearly 1,000 followers generating over 2.6K interactions/month.</p>
+        <div class="job-highlights">
+          <div class="highlight">Reinstated and grew the department's Instagram account from zero to ~1,000 followers, acquiring 2.6K+ interactions per month</div>
+          <div class="highlight">Planned, wrote, and scheduled social media content weekly across Facebook, Instagram, Vimeo, and Twitter</div>
+          <div class="highlight">Scripted, recorded, edited, and produced monthly Public Health Updates for RivCo TV</div>
+          <div class="highlight">Responded to emergencies by developing crisis communications plans including press releases, holding statements, and social content</div>
+          <div class="highlight">Served in the county Emergency Operations Center (EOC) providing communication assistance, video editing, and social media support</div>
+          <div class="highlight">Curated monthly internal Public Health newsletter for staff with program highlights and department announcements</div>
+        </div>
+        <div class="job-tags">
+          <span class="job-tag">Social Media</span><span class="job-tag">Crisis Comms</span><span class="job-tag">Video</span><span class="job-tag">EOC</span><span class="job-tag">Newsletter</span>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+
+    <div class="timeline-item">
+      <div class="timeline-meta">
+        <span class="timeline-date">Jun 2022<br>May 2023</span>
+        <span class="timeline-org">RUHS–Public Health</span>
+      </div>
+      <div class="timeline-content">
+        <h2 class="job-title">Marketing, Media & Communications Coordinator</h2>
+        <span class="job-org">Riverside University Health System — Public Health Department</span>
+        <p class="job-desc">Lead communications specialist for the MPOX and respiratory illness emergency response, overseeing all education, awareness, and promotional materials during the public health crisis.</p>
+        <div class="job-highlights">
+          <div class="highlight">Led all communications for MPOX emergency response — first-ever mobile dating-app ad campaign generating 50K+ unique insights and 6K+ county website visits</div>
+          <div class="highlight">Reported tri-weekly to the MPOX EOC on social media analytics, trends, and community engagement</div>
+          <div class="highlight">Drafted the department's social media policy, strategic crisis communication plan, and internal communications workflow documents</div>
+          <div class="highlight">Provided technical communications assistance to 21+ public health programs for their print and digital outreach</div>
+          <div class="highlight">Led media buys partnering with external agencies for Overdose Awareness and COVID-19/Flu Vaccination campaigns</div>
+          <div class="highlight">Supervised interns and temporary staff; facilitated social media consultations and marketing strategy meetings</div>
+        </div>
+        <div class="job-tags">
+          <span class="job-tag">MPOX Response</span><span class="job-tag">Paid Media</span><span class="job-tag">Crisis Plan</span><span class="job-tag">Team Leadership</span><span class="job-tag">Policy Writing</span>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+
+    <div class="timeline-item">
+      <div class="timeline-meta">
+        <span class="timeline-date">Apr 2019<br>Jun 2022</span>
+        <span class="timeline-org">RUHS–Public Health</span>
+      </div>
+      <div class="timeline-content">
+        <h2 class="job-title">Public Policy — Health Communications Assistant II</h2>
+        <span class="job-org">RUHS — Nutrition & Health Promotion · Tobacco Control Project</span>
+        <p class="job-desc">Strategized, planned, and managed paid media marketing campaigns (OOH, digital, radio) and public relations activities for the county's Tobacco Control Project.</p>
+        <div class="job-highlights">
+          <div class="highlight">Led media planning with contract agencies (Runyon Saltzman, Entercom, 360 Civic) to meet TCP media and marketing objectives</div>
+          <div class="highlight">Developed and managed TCP project websites including rivcotcp.org and a coalition site with ADA compliance</div>
+          <div class="highlight">Hosted focus groups with community members and stakeholders to test website designs and campaign materials</div>
+          <div class="highlight">Trained TCP staff and community members on press releases, Op-Eds, LTEs, and media advisories</div>
+          <div class="highlight">Drafted, designed, and consumer-tested educational materials, flyers, and presentations for tobacco control messaging</div>
+          <div class="highlight">Gave educational presentations to community organizations including Boys & Girls Club, Rotary Clubs, and faith-based groups</div>
+        </div>
+        <div class="job-tags">
+          <span class="job-tag">Paid Media</span><span class="job-tag">Website Dev</span><span class="job-tag">Community Outreach</span><span class="job-tag">Press Releases</span><span class="job-tag">Public Speaking</span>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+
+    <div class="timeline-item">
+      <div class="timeline-meta">
+        <span class="timeline-date">Feb 2019<br>Apr 2019</span>
+        <span class="timeline-org">RUHS–Public Health</span>
+      </div>
+      <div class="timeline-content">
+        <h2 class="job-title">Temp. Public Health Communications — Health Education Assistant I</h2>
+        <span class="job-org">RUHS — HIV/STD Program</span>
+        <div class="job-highlights">
+          <div class="highlight">Created sexual health educational materials for the HIV/STD program using Canva and Microsoft Suite</div>
+          <div class="highlight">Developed the HIV/STD program's featured page in the 2019 Public Health Annual Report</div>
+          <div class="highlight">Planned marketing campaigns for HIV/AIDS and STD education as lead liaison with Fight Magazine and Lagrant Communications</div>
+        </div>
+        <div class="job-tags">
+          <span class="job-tag">Public Health</span><span class="job-tag">Content Creation</span><span class="job-tag">Health Education</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<footer>
+  <span class="footer-copy">© 2025 Arianne Kargbo · Communications Professional</span>
+  <ul class="footer-nav"><li><a href="about.html">About</a></li><li><a href="experience.html">Experience</a></li><li><a href="projects.html">Projects</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="certifications.html">Certifications</a></li><li><a href="contact.html">Contact</a></li></ul>
+</footer>
+</body>
+</html>

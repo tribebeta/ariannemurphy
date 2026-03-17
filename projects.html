@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Arianne Kargbo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0a0f0d;--bg2:#0f1610;--bg3:#141c15;--emerald:#00e676;--emerald-dim:#00b85a;--emerald-glow:rgba(0,230,118,0.12);--emerald-border:rgba(0,230,118,0.25);--white:#f0f4f1;--grey:#8a9e8d;--grey-dim:#4a5e4d;--text:#c8d8ca}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;font-size:18px;line-height:1.7;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;background:rgba(10,15,13,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--emerald-border)}
+  .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.15em;color:var(--emerald);text-decoration:none}
+  .nav-links{display:flex;gap:2rem;list-style:none}
+  .nav-links a{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color 0.2s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--emerald);transform:scaleX(0);transition:transform 0.25s ease}
+  .nav-links a:hover{color:var(--emerald)} .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)} .nav-links a.active{color:var(--emerald)}
+  .page-header{padding:10rem 4rem 5rem;background:var(--bg2);position:relative;border-bottom:1px solid var(--emerald-border);overflow:hidden}
+  .page-header::before{content:'WORK';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:18rem;color:rgba(0,230,118,0.03);pointer-events:none;letter-spacing:-0.05em;line-height:1}
+  .page-eyebrow{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--emerald);margin-bottom:1rem}
+  .page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,7vw,6rem);letter-spacing:0.03em;color:var(--white);line-height:0.95}
+  .page-sub{font-style:italic;color:var(--grey);margin-top:1.5rem;font-size:1.05rem;max-width:600px}
+
+  /* CASE STUDIES */
+  .projects-section{padding:5rem 4rem}
+  .project-case{margin-bottom:5rem;padding-bottom:5rem;border-bottom:1px solid var(--emerald-border)}
+  .project-case:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .case-header{display:grid;grid-template-columns:1fr auto;align-items:start;gap:3rem;margin-bottom:2.5rem}
+  .case-number{font-family:'Bebas Neue',sans-serif;font-size:6rem;color:rgba(0,230,118,0.07);line-height:1;letter-spacing:-0.02em;flex-shrink:0}
+  .case-type{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--emerald-dim);margin-bottom:0.8rem}
+  .case-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:0.04em;color:var(--white);line-height:1;margin-bottom:0.8rem}
+  .case-org{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:var(--grey);margin-bottom:1.5rem}
+
+  .case-body{display:grid;grid-template-columns:2fr 1fr;gap:3rem;align-items:start}
+  .case-desc{font-size:1rem;font-weight:300;color:var(--text);line-height:1.85;margin-bottom:1.5rem}
+  .case-highlights{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.5rem}
+  .highlight{display:flex;gap:0.8rem;align-items:flex-start;font-size:0.95rem;color:var(--grey);line-height:1.6}
+  .highlight::before{content:'→';color:var(--emerald);font-family:'DM Mono',monospace;font-size:0.75rem;flex-shrink:0;margin-top:0.2rem}
+  .case-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+  .case-tag{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-dim);padding:0.3rem 0.8rem;border:1px solid var(--grey-dim)}
+
+  /* METRICS PANEL */
+  .metrics-panel{background:var(--bg2);border:1px solid var(--emerald-border);padding:2rem}
+  .metrics-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--emerald-dim);margin-bottom:1.5rem}
+  .metric-item{padding:1rem 0;border-bottom:1px solid var(--grey-dim)}
+  .metric-item:last-child{border-bottom:none}
+  .metric-num{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--emerald);line-height:1;letter-spacing:0.05em}
+  .metric-desc{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey-dim);margin-top:0.2rem}
+
+  /* PHOTO GRID IN PROJECTS */
+  .case-photos{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:2rem}
+  .case-photo{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;transition:opacity 0.2s}
+  .case-photo:hover{opacity:0.85}
+  .case-photo.wide{grid-column:1/-1;aspect-ratio:21/9}
+
+  footer{padding:2rem 3rem;background:var(--bg2);border-top:1px solid var(--emerald-border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .footer-copy{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;color:var(--grey-dim);text-transform:uppercase}
+  .footer-nav{display:flex;gap:1.5rem;list-style:none}
+  .footer-nav a{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-dim);text-decoration:none;transition:color 0.2s}
+  .footer-nav a:hover{color:var(--emerald)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  @media(max-width:900px){nav{padding:1rem 2rem}.page-header{padding:8rem 2rem 3rem}.projects-section{padding:3rem 2rem}.case-body{grid-template-columns:1fr}.case-header{grid-template-columns:1fr}.case-number{font-size:4rem}.case-photos{grid-template-columns:1fr}footer{padding:1.5rem 2rem}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">AK</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="experience.html">Experience</a></li><li><a href="projects.html" class="active">Projects</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="certifications.html">Certifications</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="page-header">
+  <div class="page-eyebrow">Portfolio</div>
+  <h1 class="page-title">Projects &<br>Work Samples</h1>
+  <p class="page-sub">Real campaigns. Real results. Government communications at scale.</p>
+</div>
+
+<section class="projects-section">
+
+  <!-- PROJECT 1: EQUITY LENS -->
+  <div class="project-case">
+    <div class="case-header">
+      <div>
+        <div class="case-type">Internal Communications · Quarterly Publication</div>
+        <h2 class="case-title">The Equity Lens</h2>
+        <div class="case-org">County of Riverside Executive Office · 2024</div>
+      </div>
+      <div class="case-number">01</div>
+    </div>
+    <div class="case-body">
+      <div>
+        <p class="case-desc">Arianne co-created <em>The Equity Lens</em> — a quarterly bilingual internal newsletter launched in direct response to a 2023 staff survey in which 39% of 7,000 respondents cited internal communications on equity as a top priority. The publication was designed as a magazine-quality piece connecting 25,000 county employees to DEIA efforts, employee stories, and departmental equity wins. Each edition was published in both English and Spanish and tied to the County's Emmy award-winning DEIA Stories video series.</p>
+        <div class="case-highlights">
+          <div class="highlight">Three editions published in 2024 (April, August, November) — each reaching all 25,000 employees plus 10,000 external subscribers</div>
+          <div class="highlight">Last two editions surpassed the 11,000 open-rate goal, reaching 13,000+ opens each</div>
+          <div class="highlight">Gained distribution support from two departments — Public Health Equity (1,300 recipients) and DPSS (6,000 employees)</div>
+          <div class="highlight">Each edition featured a different county employee including a deputy director, assistant CEO, and department director</div>
+          <div class="highlight">Produced using Adobe Photoshop, Microsoft Word, Canon R6 Mark II, and studio lighting</div>
+        </div>
+        <div class="case-tags">
+          <span class="case-tag">Internal Comms</span><span class="case-tag">DEIA</span><span class="case-tag">Bilingual</span><span class="case-tag">Print Design</span><span class="case-tag">Employee Engagement</span>
+        </div>
+      </div>
+      <div class="metrics-panel">
+        <div class="metrics-label">Results</div>
+        <div class="metric-item"><div class="metric-num">35K+</div><div class="metric-desc">Total reach per edition</div></div>
+        <div class="metric-item"><div class="metric-num">13K+</div><div class="metric-desc">Opens on latest editions</div></div>
+        <div class="metric-item"><div class="metric-num">3</div><div class="metric-desc">Editions in 2024</div></div>
+        <div class="metric-item"><div class="metric-num">EN/ES</div><div class="metric-desc">Fully bilingual</div></div>
+      </div>
+    </div>
+    <div class="case-photos">
+      <img src="photo_rivcoone.jpg" alt="RivCoONE key messages session" class="case-photo">
+      <img src="photo_presenting.jpg" alt="Presenting at workshop" class="case-photo">
+    </div>
+  </div>
+
+  <!-- PROJECT 2: RIVCOONE -->
+  <div class="project-case">
+    <div class="case-header">
+      <div>
+        <div class="case-type">Brand / Rebrand · Internal Communications</div>
+        <h2 class="case-title">RivCoONE Internal Brand Launch</h2>
+        <div class="case-org">County of Riverside Executive Office · 2025</div>
+      </div>
+      <div class="case-number">02</div>
+    </div>
+    <div class="case-body">
+      <div>
+        <p class="case-desc">Riverside County is home to 2.4M+ residents and operates 40+ departments. RivCoONE was created to shift the county from program-centered to person-centered service — a fundamental change in how the county does business. Arianne served as a key communications lead, helping develop and roll out the brand internally to 23,500+ employees before a 2026 countywide public launch. This included a key messaging deck, internal communications plan, and Graphic Standards Manual — developed with Westbound Communications.</p>
+        <div class="case-highlights">
+          <div class="highlight">100% adoption of the RivCoONE key messaging deck by Leadership Team, Strategy Council, and Policy Council by December 2025</div>
+          <div class="highlight">Internal communications plan finalized and published, actively guiding 2026 deliverables across all communications teams</div>
+          <div class="highlight">Graphic Standards Manual finalized and deployed — ensuring all new materials align to brand standards before the 2026 launch</div>
+          <div class="highlight">15+ branded collateral pieces produced including narrative, newsletter template, PowerPoint templates, FAQs, and design graphics</div>
+          <div class="highlight">Materials hosted on the RivCoONE intranet accessible to all 23,500+ employees</div>
+          <div class="highlight">Participated in two communications-focused Rapid Improvement Events (RIEs) and stakeholder scoping sessions</div>
+        </div>
+        <div class="case-tags">
+          <span class="case-tag">Brand Strategy</span><span class="case-tag">Internal Launch</span><span class="case-tag">Messaging Framework</span><span class="case-tag">Stakeholder Engagement</span>
+        </div>
+      </div>
+      <div class="metrics-panel">
+        <div class="metrics-label">Results</div>
+        <div class="metric-item"><div class="metric-num">100%</div><div class="metric-desc">Leadership adoption</div></div>
+        <div class="metric-item"><div class="metric-num">23.5K</div><div class="metric-desc">Employees reached</div></div>
+        <div class="metric-item"><div class="metric-num">15+</div><div class="metric-desc">Branded collateral pieces</div></div>
+        <div class="metric-item"><div class="metric-num">2026</div><div class="metric-desc">Countywide launch ready</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 3: COUNTY BUDGET -->
+  <div class="project-case">
+    <div class="case-header">
+      <div>
+        <div class="case-type">Civic Engagement Campaign · Community Relations</div>
+        <h2 class="case-title">County Budget Civic Engagement Campaign</h2>
+        <div class="case-org">County of Riverside Executive Office · Dec 2024 – Jun 2025</div>
+      </div>
+      <div class="case-number">03</div>
+    </div>
+    <div class="case-body">
+      <div>
+        <p class="case-desc">During the 2024 budget hearings, residents found the process hard to follow and participation was low — the highest public comment count over three years was only 17. The Executive Office launched an eight-month civic engagement campaign including a bilingual community survey, five in-district budget workshops, a Budget 101 resource guide, and a robust social media strategy. Arianne contributed to communications planning, content creation, news releases, social media, and bilingual materials.</p>
+        <div class="case-highlights">
+          <div class="highlight">23,840 survey responses received — goal was 10,000 (138% over target)</div>
+          <div class="highlight">654,584 GovDelivery email recipients with 98% delivery rate and 391,405 unique opens</div>
+          <div class="highlight">Five budget workshops with 190 in-person attendees and ~19,000 telephone town hall callers</div>
+          <div class="highlight">Budget 101 resource guide distributed to 1,759 people — 75.9% over combined target of 1,000</div>
+          <div class="highlight">11 earned media stories secured across The Press-Enterprise, K-News, News Channel 3, IE Business Daily, La Poderosa</div>
+          <div class="highlight">More than 975 survey responses in Spanish; 125 Spanish Budget 101 guides distributed</div>
+        </div>
+        <div class="case-tags">
+          <span class="case-tag">Civic Engagement</span><span class="case-tag">Bilingual</span><span class="case-tag">Earned Media</span><span class="case-tag">Social Media</span><span class="case-tag">Community Outreach</span>
+        </div>
+      </div>
+      <div class="metrics-panel">
+        <div class="metrics-label">Results vs. Goals</div>
+        <div class="metric-item"><div class="metric-num">23,840</div><div class="metric-desc">Survey responses (goal: 10K)</div></div>
+        <div class="metric-item"><div class="metric-num">19K+</div><div class="metric-desc">Workshop attendees (goal: 500)</div></div>
+        <div class="metric-item"><div class="metric-num">11</div><div class="metric-desc">Earned media stories (goal: 7)</div></div>
+        <div class="metric-item"><div class="metric-num">1,759</div><div class="metric-desc">Resource guides distributed</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 4: MPOX RESPONSE -->
+  <div class="project-case">
+    <div class="case-header">
+      <div>
+        <div class="case-type">Crisis Communications · Emergency Response</div>
+        <h2 class="case-title">MPOX Emergency Response Communications</h2>
+        <div class="case-org">RUHS — Public Health · 2022–2023</div>
+      </div>
+      <div class="case-number">04</div>
+    </div>
+    <div class="case-body">
+      <div>
+        <p class="case-desc">As lead communications specialist during the MPOX (Monkeypox) public health emergency, Arianne managed all education, awareness, and promotional materials for Riverside County's response — including the county's first-ever mobile dating-app advertisement campaign designed to reach communities with targeted, inclusive messaging around MPOX prevention and awareness.</p>
+        <div class="case-highlights">
+          <div class="highlight">Led all MPOX crisis communications: content creation, editing, publishing, and delegation across all channels</div>
+          <div class="highlight">First-ever mobile dating-app ad campaign generated 50,000+ unique insights and 6,000+ county website visits</div>
+          <div class="highlight">Reported tri-weekly to the MPOX EOC on analytics, community responses, and social trends</div>
+          <div class="highlight">Created, designed, and distributed EOC external communications newsletters and internal department newsletters</div>
+          <div class="highlight">Drafted the department's crisis communication plan including templated press releases, holding statements, and social content</div>
+        </div>
+        <div class="case-tags">
+          <span class="case-tag">Crisis Communications</span><span class="case-tag">EOC Operations</span><span class="case-tag">Paid Media</span><span class="case-tag">Public Health</span><span class="case-tag">Community Outreach</span>
+        </div>
+      </div>
+      <div class="metrics-panel">
+        <div class="metrics-label">Key Outcomes</div>
+        <div class="metric-item"><div class="metric-num">50K+</div><div class="metric-desc">Dating app campaign insights</div></div>
+        <div class="metric-item"><div class="metric-num">6K+</div><div class="metric-desc">County website visits driven</div></div>
+        <div class="metric-item"><div class="metric-num">1st</div><div class="metric-desc">Mobile ad campaign in dept. history</div></div>
+      </div>
+    </div>
+    <div class="case-photos">
+      <img src="photo_boardbrief.jpg" alt="On camera for RivCo TV" class="case-photo">
+      <img src="photo_interview2.jpg" alt="Field interview" class="case-photo">
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <span class="footer-copy">© 2025 Arianne Kargbo · Communications Professional</span>
+  <ul class="footer-nav"><li><a href="about.html">About</a></li><li><a href="experience.html">Experience</a></li><li><a href="projects.html">Projects</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="certifications.html">Certifications</a></li><li><a href="contact.html">Contact</a></li></ul>
+</footer>
+</body>
+</html>

@@ -9,16 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0f0d; --bg2: #0f1610; --bg3: #141c15;
-    --emerald: #00e676; --emerald-dim: #00b85a;
-    --emerald-glow: rgba(0,230,118,0.12); --emerald-border: rgba(0,230,118,0.25);
-    --white: #f0f4f1; --grey: #8a9e8d; --grey-dim: #4a5e4d; --text: #c8d8ca;
+    --bg: #F8F6F1; --bg2: #EEF0F5; --bg3: #E3E7F0;
+    --emerald: #2D5FA6; --emerald-dim: #1E4480;
+    --emerald-glow: rgba(45,95,166,0.08); --emerald-border: rgba(45,95,166,0.18);
+    --white: #1A1F2E; --grey: #5A6378; --grey-dim: #9AA3B5; --text: #3D4558;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 18px; line-height: 1.7; overflow-x: hidden; }
   body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.4; }
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: rgba(10,15,13,0.88); backdrop-filter: blur(20px); border-bottom: 1px solid var(--emerald-border); }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: rgba(248,246,241,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--emerald-border); }
   .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.15em; color: var(--emerald); text-decoration: none; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; position: relative; }
@@ -26,9 +26,8 @@
   .nav-links a:hover { color: var(--emerald); }
   .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
   .nav-links a.active { color: var(--emerald); }
-
   .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 8rem 4rem 4rem; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; top: -20%; right: -10%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(0,230,118,0.07) 0%, transparent 70%); pointer-events: none; }
+  .hero::before { content: ''; position: absolute; top: -20%; right: -10%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(45,95,166,0.05) 0%, transparent 70%); pointer-events: none; }
   .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--emerald-border), transparent); }
   .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--emerald); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; opacity: 0; animation: fadeUp 0.7s ease 0.1s forwards; }
   .hero-eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--emerald); }
@@ -37,33 +36,28 @@
   .hero-title { font-style: italic; color: var(--grey); margin: 1.5rem 0 2rem; border-left: 2px solid var(--emerald); padding-left: 1rem; font-size: 1rem; opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards; }
   .hero-bio { font-size: 1.05rem; font-weight: 300; color: var(--text); max-width: 520px; margin-bottom: 3rem; line-height: 1.8; opacity: 0; animation: fadeUp 0.7s ease 0.55s forwards; }
   .hero-cta { display: flex; gap: 1.2rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s ease 0.7s forwards; }
-  .btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2rem; background: var(--emerald); color: var(--bg); font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
-  .btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,230,118,0.25); }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2rem; background: var(--emerald); color: #ffffff; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+  .btn-primary:hover { background: #1A1F2E; color:#ffffff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(45,95,166,0.18); }
   .btn-secondary { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2rem; border: 1px solid var(--emerald-border); color: var(--emerald); font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
   .btn-secondary:hover { background: var(--emerald-glow); border-color: var(--emerald); transform: translateY(-2px); }
-
   .hero-visual { display: flex; justify-content: center; align-items: center; z-index: 1; opacity: 0; animation: fadeUp 0.9s ease 0.3s forwards; }
   .headshot-frame { position: relative; width: 360px; height: 460px; }
   .headshot-frame::before { content: ''; position: absolute; top: -12px; right: -12px; width: 100%; height: 100%; border: 1px solid var(--emerald-border); z-index: 0; }
   .headshot-frame::after { content: ''; position: absolute; bottom: -12px; left: -12px; width: 60%; height: 60%; border: 1px solid var(--emerald-dim); opacity: 0.3; z-index: 0; }
   .headshot-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; position: relative; z-index: 1; }
-  .headshot-label { position: absolute; bottom: 1.5rem; left: -1.5rem; background: var(--emerald); color: var(--bg); font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1rem; z-index: 2; }
-
+  .headshot-label { position: absolute; bottom: 1.5rem; left: -1.5rem; background: var(--emerald); color: #ffffff; font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1rem; z-index: 2; }
   .stats-bar { display: flex; border-top: 1px solid var(--emerald-border); border-bottom: 1px solid var(--emerald-border); background: var(--bg2); }
   .stat { flex: 1; text-align: center; padding: 2.5rem 2rem; border-right: 1px solid var(--emerald-border); transition: background 0.2s; }
   .stat:last-child { border-right: none; }
   .stat:hover { background: var(--emerald-glow); }
   .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 0.05em; color: var(--emerald); line-height: 1; display: block; }
   .stat-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey); margin-top: 0.4rem; display: block; }
-
   .skills-strip { padding: 5rem 4rem; background: var(--bg); }
   .section-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--emerald); margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; }
   .section-label::after { content: ''; flex: 1; height: 1px; background: var(--emerald-border); }
   .skills-grid { display: flex; flex-wrap: wrap; gap: 0.8rem; }
   .skill-tag { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; color: var(--grey); padding: 0.6rem 1.2rem; border: 1px solid var(--grey-dim); transition: all 0.2s; cursor: default; }
   .skill-tag:hover { color: var(--emerald); border-color: var(--emerald); background: var(--emerald-glow); }
-
-  /* ACTION PHOTOS */
   .photos-strip { padding: 5rem 4rem; background: var(--bg2); border-top: 1px solid var(--emerald-border); }
   .photos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--emerald-border); }
   .photo-item { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--bg3); }
@@ -71,8 +65,6 @@
   .photo-item:hover img { transform: scale(1.06); }
   .photo-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 1.5rem 1rem 0.8rem; font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--emerald); opacity: 0; transition: opacity 0.3s; }
   .photo-item:hover .photo-caption { opacity: 1; }
-
-  /* PROJECTS */
   .preview-section { padding: 5rem 4rem; background: var(--bg); }
   .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; }
   .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: 0.05em; color: var(--white); line-height: 1; }
@@ -87,36 +79,30 @@
   .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.05em; color: var(--white); margin-bottom: 0.6rem; line-height: 1.1; }
   .card-stat { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.05em; color: var(--emerald); margin-bottom: 0.8rem; }
   .card-desc { font-size: 0.95rem; color: var(--grey); line-height: 1.7; }
-
-  /* INSTAGRAM SECTION */
   .social-section { padding: 5rem 4rem; background: var(--bg2); border-top: 1px solid var(--emerald-border); }
   .social-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
   .social-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--white); letter-spacing: 0.05em; line-height: 1; margin-bottom: 1.5rem; }
   .social-text p { font-size: 1rem; font-weight: 300; color: var(--grey); line-height: 1.8; margin-bottom: 2rem; }
   .instagram-link { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1rem 2rem; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); color: #fff; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
-  .instagram-link:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(253,29,29,0.3); }
+  .instagram-link:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(131,58,180,0.3); }
   .instagram-link svg { width: 18px; height: 18px; }
   .social-preview { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
   .ig-card { background: var(--bg3); border: 1px solid var(--emerald-border); padding: 1.5rem; transition: border-color 0.2s; }
   .ig-card:hover { border-color: var(--emerald); }
   .ig-card-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--emerald); line-height: 1; letter-spacing: 0.05em; }
   .ig-card-label { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey-dim); margin-top: 0.3rem; }
-
   .contact-strip { padding: 4rem; background: var(--bg); border-top: 1px solid var(--emerald-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
   .contact-strip-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--white); letter-spacing: 0.05em; }
   .contact-strip-text p { color: var(--grey); font-size: 1rem; font-style: italic; }
   .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
   .contact-link { display: flex; align-items: center; gap: 0.5rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.06em; color: var(--grey); text-decoration: none; padding: 0.7rem 1.2rem; border: 1px solid var(--grey-dim); transition: all 0.2s; }
   .contact-link:hover { color: var(--emerald); border-color: var(--emerald); background: var(--emerald-glow); }
-
   footer { padding: 2rem 3rem; background: var(--bg2); border-top: 1px solid var(--emerald-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-copy { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--grey-dim); text-transform: uppercase; }
   .footer-nav { display: flex; gap: 1.5rem; list-style: none; }
   .footer-nav a { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dim); text-decoration: none; transition: color 0.2s; }
   .footer-nav a:hover { color: var(--emerald); }
-
   @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
   @media (max-width: 1000px) {
     nav { padding: 1rem 2rem; }
     .nav-links { gap: 1.2rem; }
@@ -133,9 +119,8 @@
 </style>
 </head>
 <body>
-
 <nav>
-  <a href="index.html" class="nav-logo">AK</a>
+  <a href="index.html" class="nav-logo">AM</a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
@@ -146,33 +131,32 @@
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
-
 <section class="hero">
   <div class="hero-text">
     <div class="hero-eyebrow">Senior Public Information Specialist</div>
-    <h1>Arianne<span class="name-accent">Kargbo</span></h1>
+    <h1>Arianne<span class="name-accent">Murphy</span></h1>
     <p class="hero-title">County of Riverside Executive Office &nbsp;·&nbsp; Government Communications &nbsp;·&nbsp; Riverside, CA</p>
-    <p class="hero-bio">Strategic communications professional with five years of government experience, telling positive-impact stories through fresh perspectives for the communities she was raised in and serves.</p>
+    <p class="hero-bio">Award-winning strategic communications leader with 7+ years of experience driving AI-augmented campaigns, crisis communications, and enterprise storytelling for a county of 2.5 million residents.</p>
     <div class="hero-cta">
       <a href="projects.html" class="btn-primary">View My Work →</a>
       <a href="contact.html" class="btn-secondary">Get In Touch</a>
+      <!-- 📄 Upload "Arianne_Murphy_Resume_2025.pdf" to GitHub repo root to enable -->
+      <a href="Arianne_Murphy_Resume_2025.pdf" class="btn-secondary" download>Download Resume ↓</a>
     </div>
   </div>
   <div class="hero-visual">
     <div class="headshot-frame">
-      <img src="headshot.jpg" alt="Arianne Kargbo" class="headshot-img">
-      <div class="headshot-label">Arianne Kargbo</div>
+      <!-- 📸 Upload "headshot.jpg" to GitHub repo root --><img src="headshot.jpg" alt="Arianne Murphy" class="headshot-img">
+      <div class="headshot-label">Arianne Murphy</div>
     </div>
   </div>
 </section>
-
 <div class="stats-bar">
-  <div class="stat"><span class="stat-number">5+</span><span class="stat-label">Years in Gov. Comms</span></div>
+  <div class="stat"><span class="stat-number">7+</span><span class="stat-label">Years in Gov. Comms</span></div>
   <div class="stat"><span class="stat-number">23,840</span><span class="stat-label">Survey Responses Driven</span></div>
   <div class="stat"><span class="stat-number">35K+</span><span class="stat-label">Employees Reached</span></div>
   <div class="stat"><span class="stat-number">6</span><span class="stat-label">Certifications</span></div>
 </div>
-
 <section class="skills-strip">
   <div class="section-label">Core Competencies</div>
   <div class="skills-grid">
@@ -186,37 +170,35 @@
     <span class="skill-tag">Media Relations</span>
     <span class="skill-tag">Social Media Strategy</span>
     <span class="skill-tag">Canva · Adobe Creative Suite</span>
-    <span class="skill-tag">Videography & Editing</span>
-    <span class="skill-tag">Analytics & Reporting</span>
+    <span class="skill-tag">Videography &amp; Editing</span>
+    <span class="skill-tag">Analytics &amp; Reporting</span>
     <span class="skill-tag">Community Outreach</span>
     <span class="skill-tag">Public Information Officer</span>
     <span class="skill-tag">EOC Operations</span>
     <span class="skill-tag">Bilingual Content (EN/ES)</span>
   </div>
 </section>
-
 <section class="photos-strip">
   <div class="section-label">In Action</div>
   <div class="photos-grid">
     <div class="photo-item">
-      <img src="photo_prsa.jpg" alt="Speaking at PRSA Inland Empire">
-      <div class="photo-caption">PRSA Inland Empire — Keynote</div>
+      <!-- 📸 Upload "photo_prsa.jpg" to GitHub repo root --><img src="photo_prsa.jpg" alt="Speaking at PRSA Inland Empire">
+      <div class="photo-caption">PRSA Inland Empire</div>
     </div>
     <div class="photo-item">
-      <img src="photo_presenting.jpg" alt="Presenting RivCoONE">
-      <div class="photo-caption">RivCoONE — Team Presentation</div>
+      <!-- 📸 Upload "photo_presenting.jpg" to GitHub repo root --><img src="photo_presenting.jpg" alt="Presenting RivCoONE">
+      <div class="photo-caption">RivCoONE Presentation</div>
     </div>
     <div class="photo-item">
-      <img src="photo_boardbrief.jpg" alt="RivCo TV Board Brief">
-      <div class="photo-caption">RivCo TV — Board Brief Host</div>
+      <!-- 📸 Upload "photo_boardbrief.jpg" to GitHub repo root --><img src="photo_boardbrief.jpg" alt="RivCo TV Board Brief">
+      <div class="photo-caption">RivCo TV Board Brief</div>
     </div>
     <div class="photo-item">
-      <img src="photo_interview2.jpg" alt="Field Interview">
-      <div class="photo-caption">RivCo TV — Field Interview</div>
+      <!-- 📸 Upload "photo_interview2.jpg" to GitHub repo root --><img src="photo_interview2.jpg" alt="Field Interview">
+      <div class="photo-caption">Field Interview</div>
     </div>
   </div>
 </section>
-
 <section class="preview-section">
   <div class="section-header">
     <h2 class="section-title">Featured Work</h2>
@@ -226,14 +208,14 @@
     <a href="projects.html" class="card">
       <div class="card-tag">Internal Communications</div>
       <div class="card-title">The Equity Lens Newsletter</div>
-      <div class="card-stat">13,000+ opens per edition · 25K employees reached</div>
-      <p class="card-desc">Emmy-tied quarterly bilingual publication connecting 25,000+ Riverside County employees to DEIA efforts and employee stories.</p>
+      <div class="card-stat">13,000+ opens per edition · 35K employees reached</div>
+      <p class="card-desc">Quarterly bilingual publication connecting 35,000+ Riverside County employees to DEIA efforts and employee stories.</p>
     </a>
     <a href="projects.html" class="card">
       <div class="card-tag">Brand / Internal Rebrand</div>
       <div class="card-title">RivCoONE Brand Launch</div>
-      <div class="card-stat">100% leadership adoption · 23,500+ employees</div>
-      <p class="card-desc">Led internal rollout of a new countywide service brand with a full messaging framework, graphic standards, and comms plan.</p>
+      <div class="card-stat">100% leadership adoption · 23,000+ employees</div>
+      <p class="card-desc">Invented and led internal rollout of a new countywide service brand with a full messaging framework, graphic standards, and comms plan.</p>
     </a>
     <a href="projects.html" class="card">
       <div class="card-tag">Civic Engagement Campaign</div>
@@ -243,7 +225,6 @@
     </a>
   </div>
 </section>
-
 <section class="social-section">
   <div class="social-inner">
     <div class="social-text">
@@ -256,26 +237,13 @@
       </a>
     </div>
     <div class="social-preview">
-      <div class="ig-card">
-        <div class="ig-card-num">2.6K+</div>
-        <div class="ig-card-label">Monthly Interactions</div>
-      </div>
-      <div class="ig-card">
-        <div class="ig-card-num">~1K</div>
-        <div class="ig-card-label">Instagram Followers Grown from Zero</div>
-      </div>
-      <div class="ig-card">
-        <div class="ig-card-num">4</div>
-        <div class="ig-card-label">Platforms Managed (FB, IG, Vimeo, X)</div>
-      </div>
-      <div class="ig-card">
-        <div class="ig-card-num">EN/ES</div>
-        <div class="ig-card-label">Bilingual Content Strategy</div>
-      </div>
+      <div class="ig-card"><div class="ig-card-num">2.6K+</div><div class="ig-card-label">Monthly Interactions</div></div>
+      <div class="ig-card"><div class="ig-card-num">~1K</div><div class="ig-card-label">Instagram Followers Grown from Zero</div></div>
+      <div class="ig-card"><div class="ig-card-num">4</div><div class="ig-card-label">Platforms Managed (FB, IG, Vimeo, X)</div></div>
+      <div class="ig-card"><div class="ig-card-num">EN/ES</div><div class="ig-card-label">Bilingual Content Strategy</div></div>
     </div>
   </div>
 </section>
-
 <div class="contact-strip">
   <div class="contact-strip-text">
     <h2>Let's Connect</h2>
@@ -290,13 +258,12 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       951-591-0188
     </a>
-    <a href="https://www.linkedin.com/in/arianne-kargbo-b0bb0129b/" target="_blank" class="contact-link">
+    <a href="https://www.linkedin.com/in/arianne-murphy/" target="_blank" class="contact-link">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       LinkedIn
     </a>
   </div>
 </div>
-
 <footer>
   <span class="footer-copy">© 2025 Arianne Murphy · Communications Professional</span>
   <ul class="footer-nav">

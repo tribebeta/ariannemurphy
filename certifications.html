@@ -6,141 +6,125 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#0a0f0d;--bg2:#0f1610;--bg3:#141c15;--emerald:#00e676;--emerald-dim:#00b85a;--emerald-glow:rgba(0,230,118,0.12);--emerald-border:rgba(0,230,118,0.25);--white:#f0f4f1;--grey:#8a9e8d;--grey-dim:#4a5e4d;--text:#c8d8ca}
+  :root{--bg:#F8F6F1;--bg2:#EEF0F5;--bg3:#E3E7F0;--emerald:#2D5FA6;--emerald-dim:#1E4480;--emerald-glow:rgba(45,95,166,0.08);--emerald-border:rgba(45,95,166,0.18);--white:#1A1F2E;--grey:#5A6378;--grey-dim:#9AA3B5;--text:#3D4558}
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;font-size:18px;line-height:1.7;overflow-x:hidden}
-  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4}
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;background:rgba(10,15,13,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--emerald-border)}
-  .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.15em;color:var(--emerald);text-decoration:none}
+  body{background:var(--bg);color:var(--text);font-family:"Crimson Pro",Georgia,serif;font-size:18px;line-height:1.7;overflow-x:hidden}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;background:rgba(248,246,241,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--emerald-border);box-shadow:0 2px 16px rgba(45,95,166,0.07)}
+  .nav-logo{font-family:"Bebas Neue",sans-serif;font-size:1.4rem;letter-spacing:0.15em;color:var(--emerald);text-decoration:none}
   .nav-links{display:flex;gap:2rem;list-style:none}
-  .nav-links a{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color 0.2s;position:relative}
-  .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--emerald);transform:scaleX(0);transition:transform 0.25s ease}
+  .nav-links a{font-family:"DM Mono",monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color 0.2s;position:relative}
+  .nav-links a::after{content:"";position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--emerald);transform:scaleX(0);transition:transform 0.25s ease}
   .nav-links a:hover{color:var(--emerald)} .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)} .nav-links a.active{color:var(--emerald)}
   .page-header{padding:10rem 4rem 5rem;background:var(--bg2);position:relative;border-bottom:1px solid var(--emerald-border);overflow:hidden}
-  .page-header::before{content:'CERTS';position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:14rem;color:rgba(0,230,118,0.03);pointer-events:none;letter-spacing:-0.05em;line-height:1}
-  .page-eyebrow{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--emerald);margin-bottom:1rem}
-  .page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,7vw,6rem);letter-spacing:0.03em;color:var(--white);line-height:0.95}
+  .page-header::before{content:"CERTS";position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:"Bebas Neue",sans-serif;font-size:14rem;color:rgba(45,95,166,0.03);pointer-events:none;letter-spacing:-0.05em;line-height:1}
+  .page-eyebrow{font-family:"DM Mono",monospace;font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--emerald);margin-bottom:1rem}
+  .page-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(3.5rem,7vw,6rem);letter-spacing:0.03em;color:var(--white);line-height:0.95}
   .certs-section{padding:5rem 4rem}
-  .section-intro{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--emerald);margin-bottom:3rem;display:flex;align-items:center;gap:1rem}
-  .section-intro::after{content:'';flex:1;height:1px;background:var(--emerald-border)}
+  .section-intro{font-family:"DM Mono",monospace;font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--emerald);margin-bottom:3rem;display:flex;align-items:center;gap:1rem}
+  .section-intro::after{content:"";flex:1;height:1px;background:var(--emerald-border)}
   .certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--emerald-border);margin-bottom:5rem}
   .cert-card{background:var(--bg);padding:2.5rem;position:relative;transition:background 0.2s}
   .cert-card:hover{background:var(--bg3)}
-  .cert-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--emerald);transition:height 0.3s}
+  .cert-card::before{content:"";position:absolute;top:0;left:0;width:3px;height:0;background:var(--emerald);transition:height 0.3s}
   .cert-card:hover::before{height:100%}
-  .cert-issuer{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--emerald-dim);margin-bottom:0.8rem}
-  .cert-name{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.04em;color:var(--white);line-height:1.1;margin-bottom:0.6rem}
-  .cert-date{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;color:var(--grey-dim);margin-bottom:1rem}
-  .cert-verify{display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--emerald);text-decoration:none;border-bottom:1px solid var(--emerald-border);padding-bottom:1px;transition:color 0.2s}
+  .cert-issuer{font-family:"DM Mono",monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--emerald-dim);margin-bottom:0.8rem}
+  .cert-name{font-family:"Bebas Neue",sans-serif;font-size:1.4rem;letter-spacing:0.04em;color:var(--white);line-height:1.1;margin-bottom:0.6rem}
+  .cert-date{font-family:"DM Mono",monospace;font-size:0.62rem;letter-spacing:0.12em;color:var(--grey-dim);margin-bottom:1rem}
+  .cert-verify{display:inline-flex;align-items:center;gap:0.4rem;font-family:"DM Mono",monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--emerald);text-decoration:none;border-bottom:1px solid var(--emerald-border);padding-bottom:1px;transition:color 0.2s}
   .cert-verify:hover{color:var(--white)}
   .cert-icon{width:36px;height:36px;margin-bottom:1.2rem;opacity:0.5}
+  .ai-badge{display:inline-flex;align-items:center;gap:0.4rem;font-family:"DM Mono",monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--emerald);background:var(--emerald-glow);border:1px solid var(--emerald-border);padding:0.3rem 0.8rem;margin-top:0.5rem}
   .edu-section{background:var(--bg2);padding:5rem 4rem;border-top:1px solid var(--emerald-border)}
   .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--emerald-border)}
   .edu-card{background:var(--bg2);padding:3rem;position:relative;transition:background 0.2s}
   .edu-card:hover{background:var(--bg3)}
-  .edu-card::before{content:'';position:absolute;top:0;left:0;width:3px;bottom:0;background:var(--emerald)}
-  .edu-school{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.04em;color:var(--white);line-height:1;margin-bottom:0.5rem}
+  .edu-card::before{content:"";position:absolute;top:0;left:0;width:3px;bottom:0;background:var(--emerald)}
+  .edu-school{font-family:"Bebas Neue",sans-serif;font-size:2rem;letter-spacing:0.04em;color:var(--white);line-height:1;margin-bottom:0.5rem}
   .edu-degree{font-size:1rem;color:var(--text);font-style:italic;margin-bottom:0.5rem}
   .edu-minor{font-size:0.9rem;color:var(--grey);margin-bottom:0.5rem}
-  .edu-year{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;color:var(--emerald-dim)}
+  .edu-year{font-family:"DM Mono",monospace;font-size:0.65rem;letter-spacing:0.15em;color:var(--emerald-dim)}
   footer{padding:2rem 3rem;background:var(--bg2);border-top:1px solid var(--emerald-border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-  .footer-copy{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;color:var(--grey-dim);text-transform:uppercase}
+  .footer-copy{font-family:"DM Mono",monospace;font-size:0.65rem;letter-spacing:0.12em;color:var(--grey-dim);text-transform:uppercase}
   .footer-nav{display:flex;gap:1.5rem;list-style:none}
-  .footer-nav a{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-dim);text-decoration:none;transition:color 0.2s}
+  .footer-nav a{font-family:"DM Mono",monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-dim);text-decoration:none;transition:color 0.2s}
   .footer-nav a:hover{color:var(--emerald)}
   @media(max-width:900px){nav{padding:1rem 2rem}.page-header{padding:8rem 2rem 3rem}.certs-section,.edu-section{padding:3rem 2rem}.certs-grid,.edu-grid{grid-template-columns:1fr}footer{padding:1.5rem 2rem}}
 </style>
 </head>
 <body>
 <nav>
-  <a href="index.html" class="nav-logo">AK</a>
+  <a href="index.html" class="nav-logo">AM</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="experience.html">Experience</a></li><li><a href="projects.html">Projects</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="certifications.html" class="active">Certifications</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
 <div class="page-header">
   <div class="page-eyebrow">Credentials</div>
-  <h1 class="page-title">Certifications<br>& Education</h1>
+  <h1 class="page-title">Certifications<br>&amp; Education</h1>
 </div>
 <section class="certs-section">
   <div class="section-intro">Professional Certifications</div>
   <div class="certs-grid">
-
     <div class="cert-card">
-      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#2D5FA6" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       <div class="cert-issuer">CA Dept. of Public Health</div>
       <div class="cert-name">NIMS Compliance During JIC</div>
       <div class="cert-date">April 2023</div>
     </div>
-
     <div class="cert-card">
-      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#2D5FA6" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       <div class="cert-issuer">CA Specialized Training Institute / Cal OES</div>
       <div class="cert-name">Media Relations (MR)</div>
       <div class="cert-date">February 14, 2023</div>
     </div>
-
     <div class="cert-card">
-      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#2D5FA6" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       <div class="cert-issuer">CA Specialized Training Institute / Cal OES</div>
       <div class="cert-name">Intermediate Public Information Officer</div>
       <div class="cert-date">February 17, 2023</div>
     </div>
-
     <div class="cert-card">
-      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#2D5FA6" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       <div class="cert-issuer">National Disaster Preparedness Training Center</div>
       <div class="cert-name">Social Media Tools and Techniques</div>
       <div class="cert-date">November 2023</div>
     </div>
-
     <div class="cert-card">
-      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#2D5FA6" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       <div class="cert-issuer">CA Specialized Training Institute</div>
       <div class="cert-name">Introduction to ICS</div>
       <div class="cert-date">February 2022</div>
     </div>
-
     <div class="cert-card">
-      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/></svg>
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#2D5FA6" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/></svg>
       <div class="cert-issuer">University of Michigan (via Coursera)</div>
-      <div class="cert-name">Good with Words: Writing & Editing Specialization</div>
+      <div class="cert-name">Good with Words: Writing &amp; Editing Specialization</div>
       <div class="cert-date">April 28, 2021 · 4 Courses Completed</div>
-      <a href="https://coursera.org/verify/specialization/L9XXM9N4KS88" target="_blank" class="cert-verify">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Verify Certificate
-      </a>
+      <a href="https://coursera.org/verify/specialization/L9XXM9N4KS88" target="_blank" class="cert-verify">Verify Certificate</a>
     </div>
-
   </div>
-  <div class="section-intro">Course-Level Credentials</div>
+  <div class="section-intro">AI &amp; Emerging Technology Training</div>
   <div class="certs-grid">
     <div class="cert-card">
-      <div class="cert-issuer">University of Michigan (via Coursera)</div>
-      <div class="cert-name">Writing & Editing: Word Choice and Word Order</div>
-      <div class="cert-date">January 20, 2021</div>
-      <a href="https://coursera.org/verify/BF9RZR5VG8V4" target="_blank" class="cert-verify">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Verify
-      </a>
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="#2D5FA6" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+      <div class="cert-issuer">Anthropic</div>
+      <div class="cert-name">AI Fundamentals — Claude</div>
+      <div class="cert-date">In Progress · 2025</div>
+      <div class="ai-badge">Active Learner</div>
     </div>
     <div class="cert-card">
       <div class="cert-issuer">University of Michigan (via Coursera)</div>
-      <div class="cert-name">Writing & Editing: Structure and Organization</div>
-      <div class="cert-date">March 9, 2021</div>
-      <a href="https://coursera.org/verify/T7TR68CSAFE7" target="_blank" class="cert-verify">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Verify
-      </a>
+      <div class="cert-name">Writing &amp; Editing: Word Choice and Word Order</div>
+      <div class="cert-date">January 20, 2021</div>
+      <a href="https://coursera.org/verify/BF9RZR5VG8V4" target="_blank" class="cert-verify">Verify</a>
     </div>
     <div class="cert-card">
       <div class="cert-issuer">Riverside Community College</div>
-      <div class="cert-name">Graphic Design & Promotional Printing</div>
+      <div class="cert-name">Graphic Design &amp; Promotional Printing</div>
       <div class="cert-date">February – June 2023</div>
     </div>
   </div>
 </section>
-
 <section class="edu-section">
   <div class="section-intro">Education</div>
   <div class="edu-grid">
@@ -152,13 +136,12 @@
     </div>
     <div class="edu-card">
       <div class="edu-school">Riverside Community College</div>
-      <div class="edu-degree">Graphic Design & Promotional Printing</div>
+      <div class="edu-degree">Graphic Design &amp; Promotional Printing</div>
       <div class="edu-minor">Continuing Education</div>
       <div class="edu-year">Feb 2023 – Jun 2023 · Riverside, California</div>
     </div>
   </div>
 </section>
-
 <footer>
   <span class="footer-copy">© 2025 Arianne Murphy · Communications Professional</span>
   <ul class="footer-nav"><li><a href="about.html">About</a></li><li><a href="experience.html">Experience</a></li><li><a href="projects.html">Projects</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="certifications.html">Certifications</a></li><li><a href="contact.html">Contact</a></li></ul>
